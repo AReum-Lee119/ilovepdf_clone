@@ -1,0 +1,588 @@
+@charset "utf-8";
+/* 초기화 링크 연동 */
+@import "reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #47474f;
+}
+
+.wrapper {
+  width: 100%;
+  /* 자식에 맞춰서 높이를 조정하겠다 */
+  /* overflow: hidden; */
+  height: auto;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  column-gap: 24px;
+}
+
+h1 {
+  width: fit-content;
+  height: fit-content;
+  padding: 15px 0;
+}
+
+h1 img {
+  height: 30px;
+}
+
+#gnb {
+  width: fit-content;
+  height: 100%;
+}
+
+#gnb > ul {
+  width: fit-content;
+  display: flex;
+  column-gap: 20px;
+  line-height: 60px;
+}
+
+/* 1차메뉴 */
+#gnb > ul > li {
+  padding: 0 20px;
+  position: relative;
+  text-align: center;
+}
+
+#gnb > ul > li .sm_3 {
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  left: 5px;
+  font-size: 9px;
+}
+
+#gnb > ul > li > a {
+  font-size: 14px;
+  font-weight: 700;
+  /* 대문자로 바꾸기 */
+  text-transform: uppercase;
+}
+
+#gnb > ul > li:hover > a {
+  color: #bd060a;
+}
+
+/* 2차메뉴 */
+#gnb > ul > li:nth-child(4) > div,
+#gnb > ul > li:last-child > div {
+  background-color: #ffffff;
+  width: 160%;
+  /* 작업 후에 바뀔 문자 500px > 0px */
+  height: 0px;
+  overflow: hidden;
+  position: absolute;
+  left: -50px;
+  top: 70px;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  /* 높이 0에서 내려올 때 쇼로록 나오는 것 */
+  transition: 0.3s;
+}
+
+.submenu {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 30px;
+  text-align: left;
+  line-height: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.submenu > span {
+  color: #707078;
+}
+
+.submenu > li {
+  padding-left: 40px;
+  position: relative;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.submenu > li:hover {
+  background-color: #f5f5f5;
+}
+
+/* a태그 앞에 있는 아이콘 영역 공통설정 */
+.submenu > li > a::before {
+  /* 인라인블록 속성은 컨텐츠가 있어야만 나온다. */
+  content: "";
+  display: block;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  background: url(../img/ilovepdf_sprite.svg) no-repeat;
+  background-position-x: -5px;
+}
+
+.submenu > li > a.jpg::before {
+  background-position-y: -180px;
+}
+
+.submenu > li > a.word::before {
+  background-position-y: -205px;
+}
+
+.submenu > li > a.power::before {
+  background-position-y: -230px;
+}
+
+.submenu > li > a.excel::before {
+  background-position-y: -255px;
+}
+
+.submenu > li > a.htmls::before {
+  background-position-y: -530px;
+}
+
+/* 옆에 내려오는 애들 */
+.submenu > li > a.merge::before {
+  background-position-y: -5px;
+}
+
+.submenu > li > a.split::before {
+  background-position-y: -30px;
+}
+.submenu > li > a.remove::before {
+  background-position-y: -55px;
+}
+
+.submenu > li > a.extract::before {
+  background-position-y: -80px;
+}
+
+.submenu > li > a.orgaize::before {
+  background-position-y: -105px;
+}
+
+.submenu > li > a.scan::before {
+  background-position-y: -680px;
+}
+
+.submenu > li:hover > a {
+  color: #e5322d;
+}
+
+/* 호버 */
+
+#gnb > ul > li:nth-child(4):hover > div {
+  height: 320px;
+}
+#gnb > ul > li:last-child:hover > div {
+  height: 370px;
+}
+
+/* 오른쪽 아이콘 버튼들 */
+.action {
+  width: fit-content;
+  height: 100%;
+  /* 플렉스일 경우(*중요) 오른쪽으로 보내기 */
+  margin-left: auto;
+  position: relative;
+  column-gap: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.action > a {
+  display: block;
+  width: 60px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* 공통속성 */
+.action > a::before {
+  content: "";
+  display: block;
+  background-image: url(../img/ilovepdf_sprite.svg);
+  background-repeat: no-repeat;
+}
+
+.action > a.icon_desk {
+  position: relative;
+  padding: 16px 14px;
+}
+
+.action > a.icon_desk::before {
+  width: 32px;
+  height: 28px;
+  background-position: -55px -30px;
+}
+
+.action > a.icon_desk::after {
+  content: "iLovePDF Desktop, work offline";
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  width: 230px;
+  line-height: 32px;
+  background-color: #47474f;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  position: absolute;
+  top: 70px;
+  left: -70px;
+  opacity: 0;
+  /* 0.3초만에 나타나게 한다 */
+  transition: opacity 0.3s;
+}
+
+.action > a.icon_desk:hover::after {
+  opacity: 1;
+}
+
+.action > a.login {
+  text-align: center;
+  line-height: 60px;
+  color: #e5322d;
+  font-weight: 500;
+}
+
+.action > a.login:hover {
+  color: #47474f;
+}
+
+.action > a.sign_up {
+  /* 박스사이징 해제 방법 */
+  box-sizing: content-box;
+  text-align: center;
+  height: 35px;
+  padding: 0 12px;
+  line-height: 35px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #bd060a;
+  color: #fff;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.action > a.sign_up:hover {
+  background-color: #47474f;
+}
+
+.action > a.menu {
+  padding: 21px 18px;
+}
+
+.action > a.menu::before {
+  width: 24px;
+  height: 18px;
+  background-position: -55px -5px;
+}
+
+/* 컨텐츠 메인 1섹션 */
+main {
+  width: 100%;
+  height: auto;
+  /* 색상 이미지경로 반복여부 배경고정 위치 / 사이즈 */
+  background: #f5f5fa url(../img/background.svg) no-repeat fixed center / cover;
+}
+
+section {
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.tools {
+  margin-top: 60px;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.top_title {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.top_title h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.top_title p {
+  font-size: 20px;
+}
+
+/* 박스형태 2차 섹션 */
+.tools_wrap {
+  padding: 0 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item_con {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2px;
+}
+
+.item_con .item {
+  /* 박스들의 기본박스 기본크기 설정  */
+  /* flex-basis: calc(16.666% - 4px); */
+  flex: 1 0 16%;
+  word-wrap: break-word;
+  background-color: #fff;
+  border: 1px solid #f5f5fa;
+  text-align: left;
+  border-radius: 4px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+.item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 50px 30px;
+  box-sizing: border-box;
+}
+
+.item a:hover {
+  background-color: #f5f5fa;
+}
+
+.item h3 {
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.item h3::before {
+  content: "icons";
+  font-size: 0;
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 30px;
+  background: url(../img/ilovepdf_sprite.svg);
+  background-size: 545%;
+  background-position: -11px -11px;
+  background-repeat: no-repeat;
+}
+
+.item p {
+  font-size: 13px;
+  line-height: 18px;
+  color: #707078;
+  margin-top: 20px;
+}
+
+/* 두번째 섹션 */
+.solution {
+  background-color: #fff;
+  padding: 100px 0;
+  color: #33333b;
+  text-align: center;
+}
+
+.solution > h2 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.solution > p {
+  line-height: 32px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #47474f;
+}
+
+.solution_box {
+  width: 1500px;
+  margin: 0 auto;
+  margin-top: 80px;
+  display: flex;
+  column-gap: 40px;
+  text-align: left;
+}
+
+.solution h3 {
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.solution p {
+  color: #707078;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.solution a {
+  text-decoration: underline;
+  color: #e5322d;
+  font-weight: 600;
+}
+
+/* 세번째 섹션 */
+.user {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.user h2 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.user p {
+  margin-top: 28px;
+  color: #707078;
+}
+
+.other_logo {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.other_logo > div {
+  height: 30px;
+}
+
+.other_logo > div > img {
+  max-height: 100%;
+}
+
+/* 네번째 섹션 */
+.premium {
+  background-color: #47474f;
+  color: #f5f5fa;
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 200px;
+  align-items: center;
+}
+
+.left {
+  width: 60%;
+}
+
+.left > h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.left > p {
+  line-height: 32px;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 60px;
+}
+
+.left a {
+  background-color: gold;
+  display: block;
+  width: fit-content;
+  padding: 8px 24px;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.left a:hover {
+  background-color: goldenrod;
+}
+
+/* 푸터 */
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 50px 200px;
+  background-color: #f5f5fa;
+}
+
+.sitemap {
+  width: 100%;
+  height: fit-content;
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 30px;
+}
+
+.sitemap #footer_nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+#footer_nav ul {
+  /* flex-basis: 25%;
+  flex-grow: 1;
+  flex-shrink: 1; */
+  flex: 1 1 25%;
+  line-height: 1;
+  font-weight: 400;
+}
+
+#footer_nav ul h4 {
+  color: #e5322d;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+#footer_nav ul li {
+  margin-bottom: 14px;
+}
+
+#footer_nav ul li a {
+  color: #707078;
+}
+
+#footer_nav ul li a:hover {
+  color: #e5322d;
+}
+
+.btn_wrap {
+  width: 100%;
+  height: 40px;
+  margin: 30px 0;
+}
+
+.btn_wrap a {
+  float: right;
+  display: block;
+  width: 135px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.btn_wrap a:last-child {
+  margin-left: 0;
+}

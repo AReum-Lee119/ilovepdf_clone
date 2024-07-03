@@ -1,0 +1,368 @@
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #222;
+  line-height: 28px;
+}
+
+.wrapper {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+/* header */
+header {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+  /* 항상 고정되어 있는 속성 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* position박스를 맨 앞으로 끌어올린다 */
+  z-index: 999;
+}
+
+.header_wrap {
+  width: 1500px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  width: 55px;
+  height: 55px;
+  padding: 23px 0;
+}
+
+h1 img {
+  max-width: 100%;
+}
+
+#gnb {
+  width: 750px;
+  height: auto;
+}
+
+#gnb > ul {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+/* 1차메뉴 */
+#gnb > ul > li {
+  line-height: 100px;
+  text-align: center;
+  position: relative;
+  font-weight: 600;
+}
+
+#gnb > ul > li:hover > a {
+  color: seagreen;
+}
+/* 2차 메뉴 */
+li > .submenu {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  background-color: #fff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  line-height: 65px;
+  width: 160%;
+  margin-left: -20px;
+  border-bottom: 3px solid seagreen;
+  display: none;
+  /* 대문자로 바꾸는 것(많이 씀) */
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.submenu > li:hover {
+  background-color: #f5f5f5;
+}
+
+.submenu > li:hover a {
+  /* 넓이 높이 영역을 넓혀주어 마우스클릭시 되는 마우스커서가 됨 */
+  display: block;
+  color: seagreen;
+}
+
+#gnb > ul > li:nth-last-child(2):hover .submenu {
+  display: block;
+}
+
+/* 오른쪽 아이콘 영역 */
+.icons {
+  width: fit-content;
+  height: 48px;
+  display: flex;
+  padding: 26px 0;
+  column-gap: 4px;
+}
+
+.icons > a {
+  display: block;
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 15px 15px;
+}
+
+.icons > a:last-child {
+  margin-left: 20px;
+}
+
+.icons > a > div {
+  width: 17px;
+  height: 17px;
+  background-image: url(../img/top_ico.jpg);
+  background-repeat: no-repeat;
+}
+
+/* div.face 페이스를 불러 올 건데 div인 페이스를 불러와라 */
+div.face {
+  background-position: 4px 0px;
+}
+
+div.twit {
+  background-position: -32px;
+}
+
+div.pin {
+  background-position: -68px;
+}
+
+div.insta {
+  background-position: -102px;
+}
+
+div.search {
+  background-position: right 0;
+}
+
+/* 컨텐츠 영역 */
+main {
+  width: 100%;
+  height: auto;
+  /* header의 포지션이 있으니 릴레이티브를 넣어야한다. */
+  margin-top: 130px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+/* 첫번째 section */
+.main_txt {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.main_txt > h4 {
+  font-size: 12px;
+  font-weight: 800;
+  /* 자간 */
+  letter-spacing: 5px;
+}
+
+.main_txt h2 {
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 76px;
+  letter-spacing: 0.06rem;
+}
+
+.main_txt p {
+  margin-top: 30px;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.main_txt b {
+  font-weight: 700;
+}
+
+/* 공통 버튼 */
+.black_btn {
+  display: block;
+  background-color: #222;
+  color: #fff;
+  border-radius: 40px;
+  padding: 20px 26px;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.btn1 {
+  width: 200px;
+}
+
+.black_btn:hover {
+  background-color: #fff;
+  color: #222;
+  border: 1px solid #222;
+}
+
+.image_box {
+  width: 100%;
+  height: fit-content;
+}
+
+/* 박스 */
+.big_box {
+  width: 1370px;
+  height: fit-content;
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  gap: 40px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+.big_box > div {
+  width: 430px;
+  height: 320px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.big_box img {
+  max-width: 100%;
+}
+
+.big_box > .car > img {
+  max-width: 150%;
+}
+.big_box > .river > img {
+  max-width: 200%;
+}
+
+/* 3차 섹션 */
+.black_back {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+}
+
+.black_back > h3 {
+  font-size: 55px;
+  line-height: 70px;
+}
+
+/* 텍스트 아래 선 만들기 */
+.black_back > h3::after {
+  display: block;
+  content: "line";
+  font-size: 0;
+  margin: 0 auto;
+  width: 200px;
+  height: 3px;
+  background-color: brown;
+  margin-top: 50px;
+}
+
+/* 4차 섹션 */
+.list_wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.list_box {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.list_box > h3 {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+#sitemap {
+  width: 100%;
+  height: fit-content;
+  background-color: antiquewhite;
+}
+
+#sitemap > ul {
+  float: left;
+  width: 25%;
+  /* 불릿 만들기 */
+  list-style: disc inside;
+  font-size: 14px;
+}
+
+#sitemap ul li:hover a {
+  color: seagreen;
+}
+
+/* 5차 섹션 */
+
+.black_back > .content {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.content > h2 {
+  font-size: 55px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 86px;
+}
+
+.content > h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+.content > p {
+  font-size: 16px;
+  line-height: 34px;
+  margin-bottom: 30px;
+}
+
+.white_btn {
+  display: block;
+  width: 150px;
+  color: #222;
+  border: 1px solid #fff;
+  background-color: #fff;
+  padding: 12px 0;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.white_btn:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  background-color: #fff;
+  position: relative;
+  line-height: 100px;
+  color: #ccc;
+}
